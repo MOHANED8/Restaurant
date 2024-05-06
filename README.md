@@ -1,101 +1,101 @@
-bash
+```bash
 $ python main.py
-
+```
 
 
 ### Listing the Menu
-bash
+```bash
 $ curl http://localhost:8080/listMeals
-
+```
 
 JSON output:
-bash
+```bash
 
 [{"id": 4, "name": "Beef stir-fry with rice", "ingredients": [{"name": "Beef", "quantity": 115, "quantity_type": "gram"}, {"name": "Rice", "quantity": 120, "quantity_type": "gram"}, {"name": "Vegetables", "quantity": 240, "quantity_type": "gram"}]}, {"id": 9, "name": "Fruit salad with mixed berries and yogurt", "ingredients": [{"name": "Mixed berries", "quantity": 240, "quantity_type": "gram"}, {"name": "Yogurt", "quantity": 120, "quantity_type": "millilitre"}]}, {"id": 3, "name": "Grilled chicken with roasted vegetables", "ingredients": [{"name": "Chicken", "quantity": 85, "quantity_type": "gram"}, {"name": "Vegetables", "quantity": 240, "quantity_type": "gram"}]}, {"id": 6, "name": "Grilled salmon with roasted asparagus", "ingredients": [{"name": "Salmon", "quantity": 85, "quantity_type": "gram"}, {"name": "Asparagus", "quantity": 240, "quantity_type": "gram"}]}, {"id": 2, "name": "Pasta with marinara sauce and vegetables", "ingredients": [{"name": "Pasta", "quantity": 115, "quantity_type": "gram"}, {"name": "Marinara sauce", "quantity": 120, "quantity_type": "millilitre"}, {"name": "Vegetables", "quantity": 240, "quantity_type": "gram"}]}, {"id": 5, "name": "Pork chops with mashed potatoes and gravy", "ingredients": [{"name": "Pork chops", "quantity": 115, "quantity_type": "gram"}, {"name": "Mashed potatoes", "quantity": 120, "quantity_type": "gram"}, {"name": "Gravy", "quantity": 120, "quantity_type": "millilitre"}]}, {"id": 1, "name": "Rice and chicken bowl", "ingredients": [{"name": "Rice", "quantity": 120, "quantity_type": "gram"}, {"name": "Chicken", "quantity": 85, "quantity_type": "gram"}]}, {"id": 7, "name": "Shrimp scampi with linguine", "ingredients": [{"name": "Shrimp", "quantity": 115, "quantity_type": "gram"}, {"name": "Linguine", "quantity": 115, "quantity_type": "gram"}, {"name": "Butter", "quantity": 10, "quantity_type": "millilitre"}, {"name": "Garlic", "quantity": 10, "quantity_type": "gram"}, {"name": "White wine", "quantity": 60, "quantity_type": "millilitre"}]}, {"id": 8, "name": "Vegetarian stir-fry with tofu", "ingredients": [{"name": "Tofu", "quantity": 115, "quantity_type": "gram"}, {"name": "Rice", "quantity": 120, "quantity_type": "gram"}, {"name": "Vegetables", "quantity": 240, "quantity_type": "gram"}]}]
-
+```
 
 ### Getting an Item from Menu
-bash
+```bash
 $ curl http://localhost:8080/getMeal?id=2
-
+```
 JSON output:
 
-bash
+```bash
 {"id": 2, "name": "Pasta with marinara sauce and vegetables", "ingredients": [{"name": "Pasta", "quantity": 115, "quantity_type": "gram"}, {"name": "Marinara sauce", "quantity": 120, "quantity_type": "millilitre"}, {"name": "Vegetables", "quantity": 240, "quantity_type": "gram"}]} 
-
+```
 
 ### Quality Calculation With Ingredient Qualities
 
-bash
+```bash
 $ curl -d "meal_id=3&garlic=high" -X POST http://localhost:8080/quality
-
+```
 
 JSON output:
 
-bash
+```bash
 {"quality": 9.0}
-
+```
 
 ### Price Calculation With Ingredient Qualities
 
-bash
+```bash
 $ curl -d "meal_id=3&garlic=low" -X POST http://localhost:8080/price
-
+```
 
 JSON output:
 
-bash
+```bash
 { none}
-
+```
 
 ### I'm Feeling Lucky
 
-bash
+```bash
 $ curl -d "budget=42.42" -X POST http://localhost:8080/random
-
+```
 
 JSON response:
 
-bash
+```bash
 {"error": "Not found"}
-
+```
 
 ## Bonus Endpoints
 ### Searching For a Meal
 
-bash
+```bash
 $ curl http://localhost:8080/search?query=beer
-
+```
 
 Example JSON output:
 
-bash
+```bash
   {"error": "Not found"}
-
+```
 
 ### Finding the Highest Quality Meal For Given Budget
 
-bash
+```bash
 $ curl -d "budget=42.42&is_vegetarian=false&is_vegan=false" -X POST http://localhost:8080/findHighest
-
+```
 
 JSON output:
 
-bash
+```bash
 {"error": "Not found"}
-
+```
 
 ### Finding the Highest Quality Version of a Meal For Given Budget
 
-bash
+```bash
 $ curl -d "budget=42.42&meal_id=2&is_vegan=false" -X POST http://localhost:8080/findHighestOfMeal
-
+```
 
 JSON output:
 
-bash
+```bash
 {"error": "Not found"}
-
+```
 
 ## Dataset
 ### Dataset Content
