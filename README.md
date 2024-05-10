@@ -97,13 +97,12 @@ JSON output:
 {"error": "Not found"}
 ```
 
-## Dataset
 ### Dataset Content
 
 <details>
   <summary>Expand to view the full dataset file</summary>
 
-json
+```json
 {
   "meals": [
     {
@@ -702,6 +701,6 @@ json
     }
   ]
 }
-
+```
 
 </details>
